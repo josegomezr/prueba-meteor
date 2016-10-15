@@ -57,6 +57,14 @@ Meteor.methods({
 
     if (!nombre || !cedula || !telefono) 
       return console.log("hay campos que no son validados")
+     var contacto = Contactos.findOne({_id: contactoId});
+
+     if(contacto.cedula!=cedula){
+      var cedulaExit = Contactos.findOne({cedula: cedula});
+    if (cedulaExit) {
+      return console.log("la cedula que trata de modificar existe")
+    }
+     }
 
     Contactos.update(contactoId, {
       $set: {
