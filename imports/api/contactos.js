@@ -26,6 +26,20 @@ Meteor.methods({
     check(cedula, String);
     check(telefono, String);
 
+    if (!nombre || !cedula || !telefono) 
+      return console.log("hay campos que no son validados")
+
+    if (!this.userId) 
+      return console.log("usted no esta logueado");
+
+    var cedulaExit = Contactos.findOne({cedula: cedula});
+    if (cedulaExit) {
+      return {
+        contactoExists: true,
+        _id: cedulaExit._id
+      }
+    }
+
     Contactos.insert({
       _id: Random.id(),
       nombre,
@@ -38,6 +52,12 @@ Meteor.methods({
     check(cedula, String);
     check(telefono, String);
 
+    if (!this.userId) 
+      return console.log("usted no esta logueado");
+
+    if (!nombre || !cedula || !telefono) 
+      return console.log("hay campos que no son validados")
+
     Contactos.update(contactoId, {
       $set: {
         nombre,
@@ -49,6 +69,8 @@ Meteor.methods({
   'contactos.remove': function(contactoId) {
     check(contactoId, String);
     //const Contacto = Contactos.findOne(contactoId);
+    if (!this.userId) 
+      return console.log("usted no esta logueado");
     Contactos.remove(contactoId)
   }
 })

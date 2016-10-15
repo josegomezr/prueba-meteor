@@ -13,8 +13,19 @@ export default class Crear extends Component {
   }
 
   crearContacto(contacto){
-    Meteor.call('contactos.insert', contacto);
-    this.context.router.push('/admin/');
+    console.log(contacto)
+    Meteor.call('contactos.insert', contacto, (error, result) => {
+      if (error)
+        return console.log(error.reason);
+      
+      if (result && result.contactoExists){
+        console.log('This link has already been posted')
+        this.context.router.push('/ver/'+result._id);
+        return;
+      }
+
+      this.context.router.push('/admin/');
+    });
   }
 
   render() {
