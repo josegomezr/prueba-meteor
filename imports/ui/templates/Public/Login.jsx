@@ -1,4 +1,4 @@
-import { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { FormGroup, Button, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap';
 
@@ -24,7 +24,7 @@ export default class Login extends Component {
     }).reduce((curr, next) => curr && next, true);
 
     let state = this.state;
-    state.validationError = valid;
+    state.validationError = !valid;
     this.setState(state);
     
     if (!valid)
@@ -94,5 +94,5 @@ export default class Login extends Component {
 }
 
 Login.contextTypes = {
-  router: React.PropTypes.object.isRequired
+  router: PropTypes.object.isRequired
 }

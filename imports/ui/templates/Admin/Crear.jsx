@@ -27,5 +27,5 @@ export default class Crear extends Component {
 }
 
 Crear.contextTypes = {
-  router: React.PropTypes.object.isRequired
+  router: PropTypes.object.isRequired
 }

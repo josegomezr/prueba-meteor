@@ -51,11 +51,11 @@ class App extends Component {
 
 
 App.contextTypes = {
-  router: React.PropTypes.object.isRequired,
+  router: PropTypes.object.isRequired,
 }
 
 App.propTypes = {
-  ready: React.PropTypes.bool.isRequired,
+  ready: PropTypes.bool.isRequired,
   currentUser: PropTypes.object
 };
 

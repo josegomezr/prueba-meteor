@@ -27,7 +27,7 @@ export default class Registro extends Component {
     }).reduce((curr, next) => curr && next, true);
 
     let state = this.state;
-    state.validationError = valid;
+    state.validationError = !valid;
     this.setState(state);
     if (!valid)
       return;

@@ -31,7 +31,7 @@ class Editar extends Component {
 }
 
 Editar.contextTypes = {
-  router: React.PropTypes.object.isRequired
+  router: PropTypes.object.isRequired
 }
 
 Editar.propTypes = {

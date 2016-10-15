@@ -6,7 +6,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 export default class FormularioContacto extends Component {
   constructor(props) {
     super(props);
-    this.state = props.contacto;
+    this.state = props.contacto || {};
     this.validations = {
       nombre: (input) => /^[\w\s]{4,}$/i.test(input),
       cedula: (input) => /^[VEJPG]-[0-9]{5,8}$/.test(input),
