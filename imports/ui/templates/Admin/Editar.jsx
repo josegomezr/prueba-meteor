@@ -18,6 +18,10 @@ class Editar extends Component {
   }
 
   render() {
+    console.log(this.props.contacto);
+    if (!this.props.contacto) {
+      return (<strong>Cargando...</strong>);
+    }
     return (
       <div>
         <FormularioContacto contacto={this.props.contacto} onValid={this.editarContacto.bind(this)} />

@@ -27,10 +27,9 @@ export default class Login extends Component {
     let state = this.state;
     state.validationError = valid;
     this.setState(state);
+    
     if (!valid)
       return;
-
-
 
     Meteor.loginWithPassword(this.state.username, this.state.password, (error) => {
       if (error) {
