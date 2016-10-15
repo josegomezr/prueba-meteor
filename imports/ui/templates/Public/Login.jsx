@@ -1,5 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-import { browserHistory } from 'react-router'
+import { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { FormGroup, Button, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap';
 

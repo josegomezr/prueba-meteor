@@ -5,7 +5,6 @@ import {check} from 'meteor/check';
 
 export const Contactos = new Mongo.Collection('Contactos');
 
-
 if (Meteor.isServer) {
   Meteor.publish('contactos', function ContactoPublication(){
     return Contactos.find({
@@ -32,17 +31,6 @@ Meteor.methods({
       nombre,
       cedula,
       telefono
-    });
-  },
-  'contactos.search': function (criteria) {
-    check(criteria, String);
-
-    return Contactos.find({
-      $or:[
-        {'nombre': {$regex: criteria}},
-        {'cedula': {$regex: criteria}},
-        {'telefono': {$regex: criteria}}
-      ]
     });
   },
   'contactos.update': function (contactoId, {nombre, cedula, telefono}) {
